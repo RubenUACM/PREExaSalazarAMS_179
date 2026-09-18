@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+actor "Usuario Final" as UF
+actor "Administrador" as Admin
+
+rectangle "Sistema de IA por RubenSalazar" {
+  usecase "Sugerir tip" as UC_Sugerir
+  usecase "Consultar Catalogo" as UC1
+  usecase "Ejecutar Proceso automatico" as UC2
+  usecase "Procesar solicitud con la I.A" as UC3
+  
+  usecase "Gestionar catalogo" as UC4
+  usecase "Iniciar sesion" as UC5
+  usecase "Aceptar o Rechazar tip" as UC_Aceptar
+
+  UC2 ..> UC3 : <<include>>
+  UC4 ..> UC5 : <<include>>
+}
+
+UF --> UC1
+UF --> UC2
+Admin --> UC4
+UF --> UC_Sugerir
+Admin --> UC_Aceptar
+
+
+@enduml
